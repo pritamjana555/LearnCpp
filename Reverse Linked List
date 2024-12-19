@@ -1,20 +1,58 @@
+//2nd recursive way
+ListNode* reverse1(ListNode* head){
+    if(head==NULL || head->next==NULL){
+        return head;
+    }
+    ListNode* chotahead = reverse1(head->next);
+
+    head->next->next=head;
+    head->next=NULL;
+    return chotahead;
+}
+//1st recusive way
+//  void reverse(ListNode* &head, ListNode* curr, ListNode* prev){
+//     if(curr==NULL){
+//         head=prev;
+//         return ;
+//     }
+//     ListNode* forward=curr->next;
+//     reverse(head,forward ,curr);
+//     curr->next=prev;
+//  }
 class Solution {
 public:
-    ListNode* reverseList(ListNode* head) {
-        if(head==NULL || head->next==NULL){
-            return head;
-        }
-        ListNode* prev = NULL;
-        ListNode* curr = head;
-        ListNode* forward = NULL;
-        while(
-            curr != NULL
-        ){
-            forward = curr->next;
-            curr->next = prev;
-            prev=curr;
-            curr=forward;
-        }
-        return prev;
+
+//2nd recursive way
+     ListNode* reverseList(ListNode* head) {
+        return reverse1(head); // Call the recursive helper function
     }
+
+//1st recursive way
+    // ListNode* reverseList(ListNode* head) {
+
+    //     ListNode* curr = head;
+    //     ListNode* prev = NULL;
+    //     reverse(head, curr, prev);
+    //     return head;
+
+
+
+
+//Interative way
+        // if(head==NULL || head->next==NULL){
+        //     return head;
+        // }
+        // ListNode* prev = NULL;
+        // ListNode* curr = head;
+        // ListNode* forward = NULL;
+        // while(
+        //     curr != NULL
+        // ){
+        //     forward = curr->next;
+        //     curr->next = prev;
+        //     prev=curr;
+        //     curr=forward;
+        // }
+        // return prev;
+        //}
 };
