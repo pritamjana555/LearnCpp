@@ -1,0 +1,26 @@
+int count(ListNode* head) {
+    ListNode* temp = head;
+    int count = 0;
+    while (temp != NULL) {
+        count++;
+        temp = temp->next;
+       
+    }
+     return count;
+}
+
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        int countNode = count(head);
+        int startPos = (countNode / 2) + 1;
+        ListNode* temp = head;
+        int tempPos = 1;
+        while (temp != NULL && tempPos < startPos) {
+            temp = temp->next;
+            tempPos++;
+        }
+       
+        return temp;
+    }
+};
