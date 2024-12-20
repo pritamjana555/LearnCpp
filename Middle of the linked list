@@ -1,3 +1,22 @@
+//Optimized code
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+
+        // Fast pointer moves two steps while slow pointer moves one step
+        while (fast != nullptr && fast->next != nullptr) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+
+        // Slow pointer will be at the middle node
+        return slow;
+    }
+};
+
+//Normal code
 int count(ListNode* head) {
     ListNode* temp = head;
     int count = 0;
