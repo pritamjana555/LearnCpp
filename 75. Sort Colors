@@ -1,0 +1,35 @@
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int zerocnt = 0;
+        int onecnt = 0;
+        int twocnt = 0;
+
+        for(int i=0; i<nums.size();i++){
+            if(nums[i] == 0){
+                zerocnt++;
+            }
+            else if(nums[i] == 1){
+                onecnt++;
+            }
+            else{
+                twocnt++;
+            }
+        }
+        for(int j=0; j<nums.size();j++){
+            if(zerocnt != 0){
+                nums[j] = 0;
+                zerocnt--;
+            }
+            else if(onecnt != 0){
+                nums[j] = 1;
+                onecnt--;
+            }
+            else if(twocnt != 0){
+                nums[j] = 2;
+                twocnt--;
+            }
+        }
+       
+    }
+};
